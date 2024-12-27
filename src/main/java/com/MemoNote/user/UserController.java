@@ -8,13 +8,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class UserController {
 
+	// 회원가입 화면
 	@GetMapping("/join-view")
 	public String inputJoin() {
-		return "/user/join";
+		return "user/join";
 	}
 	
-	@GetMapping("/login-view")
-	public String loginInput() {
-		return "/user/login";
-	}
+	
 }

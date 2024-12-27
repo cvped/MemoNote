@@ -16,13 +16,16 @@ public class UserRestController {
 
 	private UserService userService;
 	
+
+	
+	
 	// API
 	@PostMapping("/join")
 	public Map<String,String>join(
 			@RequestParam("loginId") String loginId
 			,@RequestParam("name") String name
 			,@RequestParam("password")String password
-			,@RequestParam("phoneNumber")int phoneNumber) {
+			,@RequestParam("phoneNumber")String phoneNumber) {
 		
 		Map<String,String> resultMap = new HashMap<>();
 		
