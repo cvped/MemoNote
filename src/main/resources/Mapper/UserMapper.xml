@@ -21,6 +21,32 @@
  		,#(phoneNumber)
  		)
  	</insert>
+ 	
+ 	<select id="seletUser" parameterType="map"
+ 	resultType="com.MemoNote.user.domain.User">
+ 		SELECT
+ 		(
+ 		`id
+ 		,`loginId`
+ 		,`password`
+ 		,`name`
+ 		,`phoneNumber`
+ 		,`createdAt`
+ 		,`updatedAt`
+ 		)
+ 		FROM
+ 			`user`
+ 		WHERE
+ 			`loginId` = #{loginId}
+ 		AND
+ 			`password` = #{password}	
+ 		)
+ 		
+ 		
+ 	
+ 	
+ 	
+ 	</select>
  
  
  

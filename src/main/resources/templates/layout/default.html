@@ -1,6 +1,6 @@
 <html lang="ko" 
     xmlns:th="http://www.thymeleaf.org" 
-        xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 <meta charset="UTF-8">
 <title>MemoNote</title>
@@ -10,15 +10,11 @@
 
 </head>
 <body>
-    <div id="wrap">
- 
-        <th:block th:replace="~{fragments/header}"></th:block>
-        
+   <div id="wrap">
+		<th:block th:replace="~{fragments/header}"></th:block>
 		<th:block layout:fragment="contents"></th:block>
-		
 		<th:bolck th:replace="~{fragments/footer}"></th:block>
-		
-    </div>
+</div>
     
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>

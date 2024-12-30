@@ -2,6 +2,7 @@ package com.MemoNote.user.service;
 
 import org.springframework.stereotype.Service;
 
+import com.MemoNote.user.domain.User;
 import com.MemoNote.user.repository.UserRepository;
 
 @Service
@@ -26,4 +27,13 @@ public class UserService {
 		}
 	
 	}
+	
+	public  User getUser (
+			String loginId
+			,String password) {
+		
+		return userRepository.seletUser(loginId, password);
+		
+	}
+	
 }

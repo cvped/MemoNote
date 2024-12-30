@@ -6,16 +6,22 @@
 	
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 		
-		<section layout:fragments="contents">
-			<div id="input-box">
-			<h2 class="text-center">회원가입</h2>
-			<input type="text" placeholder="아이디를">
-			<input type="password" placeholder="비밀번호">
-			<input type="password" placeholder="비밀번호확인">
-			<input type="text" placeholder="이름">
-			<Input type="text" placeholder="전화번호">
-			</div>	
+			<section layout:fragment="contents" class="contents d-flex justify-content-center">
+			<div class="input-box my-5 p-5 rounded-lg text-center">
+				<h1 class="text-center">회원가입</h1>
+				<input type="text" class="form-center mt-3" id="idInput" placeholder="아이디">
+				<input type="password" class="form-center mt-2"  placeholder="비밀번호">
+				<input type="password" class="form-center mt-2"  placeholder="비밀번호확인">
+				<input type="text" class="form-center mt-2" id="nameInput" placeholder="이름">
+				<input type="text" class="form-center mt-2" id="emailInput" placeholder="전화번호">
+				<div class="text-center">
+				<button type="button" class="btn btn-warning btn block mt-3 mr-3">가입하기</button>
+				<button type="button" class="btn btn-warning btn block mt-3 ml-3"><a href="/user/login-view">로그인</a></button>
+				</div>
+			</div>
 		</section>
+		
+		
 		
 		
 </html>

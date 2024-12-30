@@ -4,13 +4,18 @@
  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
  layout:decorate="~{Layout/default}">
  
- 		 <section layout:fragment="contents">
-	      	<div class="">
-	      		<h1>로그인</h1>
-	      	
-	      	
-	      	</div>
-	    </section>
- 
+ 	<section layout:fragment="contents" class="contents d-flex justify-content-center">
+ 	
+			<div class="contents-box my-5 p-5 rounded-lg text-center">
+				<h1 class="text-center">로그인</h1>
+				<input type="text" class="form-center mt-3"  placeholder="아이디">
+				<input type="password" class="form-center mt-2"  placeholder="비밀번호">	
+				
+				<div class="text-center">
+				<button type="button" class="btn btn-warning btn block mt-3 mr-3">로그인</button>
+				<button type="button" class="btn btn-warning btn block mt-3 ml-3"><a href= "/user/join-view">회원가입</a></button>
+				</div>
+			</div>
+		</section>
  
  </html>

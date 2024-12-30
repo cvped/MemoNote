@@ -13,6 +13,10 @@ public class UserController {
 	public String inputJoin() {
 		return "user/join";
 	}
-	
+	// 로그인 화면
+	@GetMapping("/login-view")
+	public String loginview() {
+		return "user/login";
+	}
 	
 }
