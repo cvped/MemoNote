@@ -8,6 +8,7 @@ public class User {
 	private int id;
 	private String loginId;
 	private String password;
+	private String name;
 	private int phoneNumber;
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
@@ -30,6 +31,12 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -48,6 +55,7 @@ public class User {
 	public void setUpdatedAt(LocalDateTime updatedAt) {
 		this.updatedAt = updatedAt;
 	}
+	
 	
 
 }

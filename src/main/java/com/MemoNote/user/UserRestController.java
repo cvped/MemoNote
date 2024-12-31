@@ -11,11 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 import com.MemoNote.user.domain.User;
 import com.MemoNote.user.service.UserService;
 
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
+
 @RequestMapping("/user")
 @RestController
 public class UserRestController {
 
 	private UserService userService;
+	
+	
 	
 	// 회원가입 API
 	@PostMapping("/join")
@@ -38,13 +43,21 @@ public class UserRestController {
 	//로그인 API
 	public  Map<String,String> login(
 			@RequestParam("loginId")String loginId
-			,@RequestParam("password")String password) {
+			,@RequestParam("password")String password
+			,HttpServletRequest request) {
 		
 		User user = userService.getUser(loginId, password);
 		
 		Map<String,String> resultMap = new HashMap<>();
 		
 		if(user != null) {
+			
+		HttpSession session = request.getSession();
+		
+		session.setAttribute("userId", user.getId());
+		session.setAttribute("userName",user.getName());
+			
+			
 			resultMap.put("result","success");
 		}else {
 			resultMap.put("result", "fail");
@@ -53,6 +66,8 @@ public class UserRestController {
 		return resultMap;
 		
 	}
+	
+
 	
 	
 }

@@ -33,7 +33,8 @@ public class UserService {
 			,String password) {
 		
 		return userRepository.seletUser(loginId, password);
-		
 	}
+	
+	
 	
 }

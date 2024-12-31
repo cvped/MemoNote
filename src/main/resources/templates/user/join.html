@@ -9,19 +9,56 @@
 			<section layout:fragment="contents" class="contents d-flex justify-content-center">
 			<div class="input-box my-5 p-5 rounded-lg text-center">
 				<h1 class="text-center">회원가입</h1>
-				<input type="text" class="form-center mt-3" id="idInput" placeholder="아이디">
-				<input type="password" class="form-center mt-2"  placeholder="비밀번호">
-				<input type="password" class="form-center mt-2"  placeholder="비밀번호확인">
-				<input type="text" class="form-center mt-2" id="nameInput" placeholder="이름">
-				<input type="text" class="form-center mt-2" id="emailInput" placeholder="전화번호">
+				<input type="text" class="form-center mt-3" placeholder="아이디" id="idInput">
+				<input type="password" class="form-center mt-2"  placeholder="비밀번호" id="passwordInput">
+				<input type="password" class="form-center mt-2"  placeholder="비밀번호확인" id="passwordCheck">
+				<input type="text" class="form-center mt-2" placeholder="이름" id="nameInput">
+				<input type="text" class="form-center mt-2" placeholder="전화번호" id="phoneNumberInput">
 				<div class="text-center">
-				<button type="button" class="btn btn-warning btn block mt-3 mr-3">가입하기</button>
+				<button type="button" class="btn btn-warning btn block mt-3 mr-3" id="joinBtn">가입하기</button>
 				<button type="button" class="btn btn-warning btn block mt-3 ml-3"><a href="/user/login-view">로그인</a></button>
 				</div>
 			</div>
 		</section>
 		
 		
-		
-		
+			<script layout:fragment="script">
+				$(document).ready(function(){
+					$("joinBtn").on("click",function(){
+						let id = $("idInput").val();
+						let password = $("password").val();
+						let passwordCheck = $("passwordCheck").val();
+						let name = $("nameInput").val();
+						let phoneNumber = $("phoneNumberInput").val();
+						
+						if(id == ""){
+							alert("아이디를 입력하세요");
+							return ;
+						};
+						if(password == ""){
+							alert("비밀번호를 입력하세요");
+							return ;
+						};
+						if(passwordCheck != ""){
+							alert("비밀번호를 확인하세요");
+							return ;
+						}			
+						if(name == ""){
+							alert("이름을 입력하세요");
+							return ;
+						}
+						if(phoneNumber == ""){
+							alert("전화번호를 입력하세요");
+							return ;
+						}
+						
+						
+						
+					});
+					
+				});
+			
+			
+			</script>
+
 </html>
