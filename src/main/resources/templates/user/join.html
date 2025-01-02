@@ -8,7 +8,7 @@
 		
 			<section layout:fragment="contents" class="contents d-flex justify-content-center">
 			<div class="input-box my-5 p-5 rounded-lg text-center">
-				<h1 class="text-center">회원가입</h1>
+				<h1 class="text-center text-warning">회원가입</h1>
 				<input type="text" class="form-center mt-3" placeholder="아이디" id="idInput">
 				<input type="password" class="form-center mt-2"  placeholder="비밀번호" id="passwordInput">
 				<input type="password" class="form-center mt-2"  placeholder="비밀번호확인" id="passwordCheck">
@@ -16,7 +16,8 @@
 				<input type="text" class="form-center mt-2" placeholder="전화번호" id="phoneNumberInput">
 				<div class="text-center">
 				<button type="button" class="btn btn-warning btn block mt-3 mr-3" id="joinBtn">가입하기</button>
-				<button type="button" class="btn btn-warning btn block mt-3 ml-3"><a href="/user/login-view">로그인</a></button>
+				<button type="button" class="btn btn-warning btn block mt-3 ml-3">
+				<a href="/user/login-view">로그인</a></button>
 				</div>
 			</div>
 		</section>
@@ -24,12 +25,12 @@
 		
 			<script layout:fragment="script">
 				$(document).ready(function(){
-					$("joinBtn").on("click",function(){
-						let id = $("idInput").val();
-						let password = $("password").val();
-						let passwordCheck = $("passwordCheck").val();
-						let name = $("nameInput").val();
-						let phoneNumber = $("phoneNumberInput").val();
+					$("#joinBtn").on("click",function(){
+						let id = $("#idInput").val();
+						let password = $("#passwordInput").val();
+						let passwordCheck = $("#passwordCheck").val();
+						let name = $("#nameInput").val();
+						let phoneNumber = $("#phoneNumberInput").val();
 						
 						if(id == ""){
 							alert("아이디를 입력하세요");
@@ -38,11 +39,11 @@
 						if(password == ""){
 							alert("비밀번호를 입력하세요");
 							return ;
-						};
-						if(passwordCheck != ""){
+						}
+						if(password != passwordCheck){
 							alert("비밀번호를 확인하세요");
 							return ;
-						}			
+						}
 						if(name == ""){
 							alert("이름을 입력하세요");
 							return ;
@@ -51,6 +52,26 @@
 							alert("전화번호를 입력하세요");
 							return ;
 						}
+						
+						
+						$.ajax({
+							type:"post"
+							,url:"/user/join"
+							,data:{"loginId":id,"password":password,"name":name,"phoneNumber":phoneNumber}
+							,success:function(response){
+								if(response.result=="success"){
+									location.href="/user/login-view"
+								}else{
+									alert("회원가입 실패!")
+								}
+								
+							}
+							,error:function(){
+								alert("회원가입 에러!")
+							}
+							
+							
+						});
 						
 						
 						
