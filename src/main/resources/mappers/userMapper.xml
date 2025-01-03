@@ -6,20 +6,21 @@
  <mapper namespace="com.MemoNote.user.repository.UserRepository">
  	<insert id="insertUser" parameterType="map">
  	INSERT INTO
- 		`user`
- 		(
- 			`loginId`
- 			,`password`
- 			,`name`
- 			,`phoneNumber`
- 		)
- 		VALUE
- 		(
- 		#(loginId)
- 		,#(password)
- 		,#(name)
- 		,#(phoneNumber)
- 		)
+			`user`
+		(
+			`loginId`
+			, `password`
+			, `name`
+			, `phoneNumber`
+		)
+		VALUE 
+		(
+			#{loginId}
+			, #{password}
+			, #{name}
+			, #{phoneNumber}
+			
+		)
  	</insert>
  	
  	<select id="seletUser" parameterType="map"
@@ -41,11 +42,7 @@
  		AND
  			`password` = #{password}	
  		)
- 		
- 		
- 	
- 	
- 	
+
  	</select>
  
  
