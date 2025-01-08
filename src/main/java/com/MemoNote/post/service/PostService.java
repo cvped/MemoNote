@@ -12,6 +12,7 @@ public class PostService {
 
 		public boolean addPost(int userId,String title ,String contents,String imagePath) {
 			
+			
 			Post post = Post.builder()
 					.userId(userId)
 					.title(title)

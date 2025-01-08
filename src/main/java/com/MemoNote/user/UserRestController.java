@@ -55,7 +55,7 @@ public class UserRestController {
 		Map<String,String> resultMap = new HashMap<>();
 		
 	
-		
+		// 로그인 성공
 		if(user != null) {
 			
 			HttpSession session = request.getSession();

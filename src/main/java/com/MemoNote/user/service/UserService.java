@@ -21,6 +21,7 @@ public class UserService {
 		,String password
 		,String  phoneNumber) {
 		
+		
 		int count = userRepository.insertUser(loginId, password, name, phoneNumber);
 		
 		if(count == 1) {
