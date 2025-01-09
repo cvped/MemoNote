@@ -2,7 +2,7 @@
     <header class="d-flex align-items-center justify-content-between">
        <h2>MemoNote</h2>
    		<div class="mr-3" th:if="${session.userId != null}">
-			<span th:text="${session.userName}"></span> <a href="/user/login-view">로그아웃</a>
+			<span th:text="${session.userName}"></span> <a href="/user/logout-view">로그아웃</a>
 			</div>
     </header>
 </html>

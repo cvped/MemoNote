@@ -18,7 +18,7 @@ public class PostRestController {
 
 	private PostService postService;
 	
-	// 리스트화면  API 
+	//메모 작성화면 API  
 	@PostMapping("/create")
 	public Map<String,String>postlist(
 			@RequestParam("title")String title

@@ -32,7 +32,7 @@ public class UserController {
 		session.removeAttribute("userName");
 		
 		
-		return "user/logout";
+		return "redirect:login-view";
 	}
 
 	
