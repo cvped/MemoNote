@@ -18,19 +18,23 @@ public class PostRestController {
 
 	private PostService postService;
 	
+	public PostRestController(PostService postService) {
+		
+		this.postService = postService;
+	}
+	
 	//메모 작성화면 API  
 	@PostMapping("/create")
 	public Map<String,String>postlist(
 			@RequestParam("title")String title
 			,@RequestParam("contents")String contents
-			,@RequestParam("imagePath")String imagePath
 			,HttpSession session) {
 		
 		Map<String,String>resultMap = new HashMap<>();
 		
 		int userId = (Integer)session.getAttribute("userId");
 		
-		if(postService.addPost(userId, title, contents, imagePath)) {
+		if(postService.addPost(userId, title, contents)) {
 			resultMap.put("result", "success");
 		}else {
 			resultMap.put("result", "fail");
@@ -39,4 +43,8 @@ public class PostRestController {
 		return resultMap;
 		
 	}
+	
+	
+	
+	
 }

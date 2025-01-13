@@ -19,6 +19,7 @@
 					<textarea class="form-control mt-2 text-center"rows="10" placeholder="내용을 입력하세요" id="contentsInput"></textarea>
  				</div>
  				
+ 				
  				<div class="text-center d-flex justify-content-end">
  					<button type="button" class="btn btn-warning my-5 mr-2"><a href="/post/list-view">목록으로</a></button>
  					<button type="button" class="btn btn-warning my-5 mr-2" id="saveBtn"><a href="/post/list-view"></a>저장</button>
@@ -52,9 +53,9 @@
 							,success:function(response){
 								if(response.result=="success"){
 									location.href="/post/list-view"
-									alert("내용 입력성공!")
+									alert("입력성공!")
 								}else{
-									alert("내용 입력 실패!")
+									alert("입력실패!")
 								}
 								
 							}
