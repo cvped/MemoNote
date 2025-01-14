@@ -43,13 +43,13 @@ public class PostService {
 			return postRepository.findByUserIdOrderByIdDesc(userId);
 		}
 		
-		public Post getPost(int id) {
+		public Post getPost(int id){
 			
 			Optional<Post> optionalPost = postRepository.findById(id);
 			
 			return optionalPost.orElse(null);
 		}
 		
-		
+	
 		
 }
