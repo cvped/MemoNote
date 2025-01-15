@@ -35,9 +35,9 @@ public class PostController {
 
 		int userId = (Integer)session.getAttribute("userId");
 		
-		List<Post> List = postService.getPostList(userId);
+		List<Post> list = postService.getPostList(userId);
 		
-		model.addAttribute("List", List);
+		model.addAttribute("list", list);
 		
 		
 		return "post/list";

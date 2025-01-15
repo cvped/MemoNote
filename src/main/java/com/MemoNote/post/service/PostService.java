@@ -19,7 +19,7 @@ public class PostService {
 			this.postRepository = postRepository;
 		}
 
-		public boolean addPost(int userId,String title ,String contents) {
+		public boolean addPost(int userId, String title ,String contents) {
 			
 			
 			Post post = Post.builder()
@@ -43,12 +43,6 @@ public class PostService {
 			return postRepository.findByUserIdOrderByIdDesc(userId);
 		}
 		
-		public Post getPost(int id){
-			
-			Optional<Post> optionalPost = postRepository.findById(id);
-			
-			return optionalPost.orElse(null);
-		}
 		
 	
 		

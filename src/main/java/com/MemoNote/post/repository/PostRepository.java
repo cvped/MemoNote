@@ -9,5 +9,5 @@ import com.MemoNote.post.domain.Post;
 public interface PostRepository extends JpaRepository<Post,Integer> {
 	
 	public List<Post>findByUserIdOrderByIdDesc(int userId);
-
+	
 }
