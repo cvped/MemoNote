@@ -49,6 +49,10 @@ public class PostController {
 		return "post/create";
 	}
 	
+	@GetMapping("/detail-view")
+	public String detail() {
+		return "post/detail";
+	}
 	
 
 }

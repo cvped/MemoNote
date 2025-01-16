@@ -29,6 +29,7 @@ public class Post {
 	
 	@Column(name="userId")
 	private int userId;
+	
 	private String title;
 	private String contents;
 	

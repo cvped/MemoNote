@@ -3,7 +3,6 @@ package com.MemoNote.post.service;
 import java.util.List;
 import java.util.Optional;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.MemoNote.post.domain.Post;
@@ -12,7 +11,6 @@ import com.MemoNote.post.repository.PostRepository;
 @Service
 public class PostService {
 	
-		@Autowired
 		private  PostRepository postRepository;
 		
 		public PostService(PostRepository postRepository) {
@@ -41,9 +39,20 @@ public class PostService {
 		public List<Post> getPostList(int userId) {
 			
 			return postRepository.findByUserIdOrderByIdDesc(userId);
+			
 		}
 		
-		
+		public Post getPost(int id) {
+			
+			Optional<Post> optionalPost = postRepository.findById(id);
+			
+			return optionalPost.orElse(null);
+		}
 	
+		public Post updatePost(int id,String title,String contents) {
+			
+			
+		}
+			
 		
 }

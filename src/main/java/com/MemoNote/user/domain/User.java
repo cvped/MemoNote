@@ -2,13 +2,21 @@ package com.MemoNote.user.domain;
 
 import java.time.LocalDateTime;
 
+import jakarta.persistence.Column;
+
 public class User {
 
 	private int id;
 	private String loginId;
+	
+	@Column(name="password")
 	private String password;
+	
 	private String name;
-	private int phoneNumber;
+	
+	@Column(name="phoneNumber")
+	private String phoneNumber;
+	
 	private LocalDateTime createdAt;
 	private LocalDateTime updatedAt;
 	
@@ -36,10 +44,10 @@ public class User {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getPhoneNumber() {
+	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public void setPhoneNumber(int phoneNumber) {
+	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
 	public LocalDateTime getCreatedAt() {

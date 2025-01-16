@@ -19,17 +19,19 @@
 					</thead>
 					<tbody>
 						<tr th:each="memo:${list}">
-							<td th:text="${memo.id}">3</td>
-							<td th:text="${memo.title}">내일 해야할일</td>
-							<td>2025-01-15</td>	
+							<td th:text="${memoid}">3</td>
+							<td></td>
+							<td></td>	
 						</tr>	
 					</tbody>
 				</table>
 				
 				<div class="text-center my-3 p-3 d-flex justify-content-end">
-				<button type="button" class="btn btn-warning">
-				<a href="/post/create-view">메모작성</a></button>
+				<button type="button" class="btn btn-warning mr-2"><a href="/post/create-view">메모작성</a></button>
+				<button type="button" class="btn btn-warning mr-2"><a href="/post/detail-view">수정</a></button>
 				</div>
+			
+		
 				
  			</div>			
  		</section>

@@ -26,8 +26,7 @@
  	<select id="seletUser" parameterType="map"
  	resultType="com.MemoNote.user.domain.User">
  		SELECT
- 		
- 		`id`
+ 		 `id`
  		,`loginId`
  		,`password`
  		,`name`
