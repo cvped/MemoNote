@@ -7,7 +7,7 @@
 
 header{
 	height:100px;
-	background-color:rgb(251, 185, 96)
+	background-color:rgb(192, 192, 192)
 }
 
 .contents{
@@ -16,7 +16,7 @@ header{
 
 .contents > .input-box{
 	width:400px;
-	background-color:rgb(214, 135, 3)
+	background-color:rgb(192, 192, 192)
 }
 
 .contents > .contents-box{
@@ -24,7 +24,7 @@ header{
 	height:300px;
 	border-radius:20px;
 	border:none;
-	background-color:rgb(251, 162, 13)
+	background-color:rgb(192, 192, 192)
 }
 
 
@@ -32,5 +32,5 @@ header{
 
 footer{
 	height:100px;
-	background-color:rgb(251, 185, 96)
+	background-color:rgb(192, 192, 192)
 }

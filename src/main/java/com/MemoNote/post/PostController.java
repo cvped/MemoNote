@@ -43,15 +43,16 @@ public class PostController {
 		return "post/list";
 	}
 	
-	//  메모 작성 페이지
+	// 작성 페이지
 	@GetMapping("/create-view")
 	public String create() {
 		return "post/create";
 	}
 	
-	@GetMapping("/detail-view")
-	public String detail() {
-		return "post/detail";
+	// 수정 페이지
+	@GetMapping("/update-view")
+	public String update() {
+		return "post/update";
 	}
 	
 

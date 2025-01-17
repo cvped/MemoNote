@@ -42,6 +42,7 @@ public class PostService {
 			
 		}
 		
+	
 		public Post getPost(int id) {
 			
 			Optional<Post> optionalPost = postRepository.findById(id);
@@ -49,7 +50,27 @@ public class PostService {
 			return optionalPost.orElse(null);
 		}
 	
-		public Post updatePost(int id,String title,String contents) {
+		
+		
+		public boolean updatePost(int id,String title,String contents) {
+			
+			Optional<Post> optionalPost = postRepository.findById(id);
+			
+			if(optionalPost.isPresent()) {
+				
+				Post post = optionalPost.get();
+				
+				post = post.toBuilder().title(title).contents(contents).build();
+				
+				try {
+					postRepository.save(post);
+					return true;
+				} catch(Exception e) {
+					return false;
+			}		
+				
+		}
+			return false;
 			
 			
 		}

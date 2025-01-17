@@ -19,16 +19,17 @@
 					</thead>
 					<tbody>
 						<tr th:each="memo:${list}">
-							<td th:text="${memoid}">3</td>
+							<td th:text="${memo.id}">3</td>
 							<td></td>
 							<td></td>	
 						</tr>	
 					</tbody>
 				</table>
 				
-				<div class="text-center my-3 p-3 d-flex justify-content-end">
-				<button type="button" class="btn btn-warning mr-2"><a href="/post/create-view">메모작성</a></button>
-				<button type="button" class="btn btn-warning mr-2"><a href="/post/detail-view">수정</a></button>
+				<div class="text-center my-3 p-3 d-flex justify-content-center">
+				<button type="button" class="btn btn-dark mr-2"><a href="/post/create-view">메모작성</a></button>
+				<button type="button" class="btn btn-dark mr-2"><a href="/post/update-view">수정</a></button>
+				<button type="button" class="btn btn-dark mr-2" id="deleteBtn">삭제</button>
 				</div>
 			
 		
@@ -36,7 +37,16 @@
  			</div>			
  		</section>
  		
+ 		<script layout:fragment="script">
+ 			$(document).ready("click",function(){
+ 				$("#deleteBtn").on("click",function(){
+ 					
+ 				});
+ 			});
  		
+ 		
+ 		
+ 		</script>
  		
  		
  		
