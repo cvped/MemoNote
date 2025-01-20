@@ -55,5 +55,15 @@ public class PostController {
 		return "post/update";
 	}
 	
-
+	@GetMapping("/detail-view")
+	public String Detail(
+			@RequestParam("id") int id
+			, Model model) {
+		
+		Post memo = postService.getPost(id);
+		
+		model.addAttribute("memo", memo);
+		
+		return "post/detail";
+	}
 }

@@ -7,11 +7,16 @@
  				<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
  		
  		<section layout:fragment="contents">
- 			<div class="contents-box">
+ 			<div id="memoNote" class="contents-box">
  				<h1 class="text-center my-5 p-5">Memo List</h1>
 				<table class="table text-center">
 					<thead>
-						<tr>				
+						<tr>	
+							<th>
+                                <label class="checkbox-inline">
+                                <input type="checkbox" id="CheckBox">
+                                </label>
+                            </th>	
 							<th>No</th>
 							<th>제목</th>
 							<th>날짜</th>
@@ -19,7 +24,10 @@
 					</thead>
 					<tbody>
 						<tr th:each="memo:${list}">
-							<td th:text="${memo.id}">3</td>
+						<td>
+						 <label class="checkbox-inline"><input type="checkbox"></label>
+                         </td>
+							<td th:text="${memoid}">3</td>
 							<td></td>
 							<td></td>	
 						</tr>	
@@ -27,9 +35,10 @@
 				</table>
 				
 				<div class="text-center my-3 p-3 d-flex justify-content-center">
-				<button type="button" class="btn btn-dark mr-2"><a href="/post/create-view">메모작성</a></button>
+				<button type="button" class="btn btn-dark mr-2"><a href="/post/create-view">작성</a></button>
 				<button type="button" class="btn btn-dark mr-2"><a href="/post/update-view">수정</a></button>
 				<button type="button" class="btn btn-dark mr-2" id="deleteBtn">삭제</button>
+				
 				</div>
 			
 		
@@ -38,16 +47,70 @@
  		</section>
  		
  		<script layout:fragment="script">
- 			$(document).ready("click",function(){
- 				$("#deleteBtn").on("click",function(){
- 					
- 				});
- 			});
  		
- 		
+ 		$(document).ready(function(){
+				
+				
+				$("#deleteBtn").on("click", function() {
+	    			
+	    			let id = $("#memoNote").data("post-id");
+	    			
+	    			$.ajax({
+	    				type:"delete"
+	    				, url:"/post/delete"
+	    				, data:{"id":id}
+	    				, success:function(response) {
+	    					if(response.result == "success") {
+	    						location.href = "/post/list-view";
+	    					} else {
+	    						alert("삭제 실패!");
+	    					}
+	    					
+	    				}, 
+	    				error:function() {
+	    					alert("삭제 에러");
+	    				}
+	    			});
+	    		});
+				
+				
+				
+				
+				$("#saveBtn").on("click",function(){
+					let title = $("#titleInput").val();
+					let contents = $("#contentsInput").val();
+					
+					if(title == ""){
+						alert("제목을 입력하세요!")
+						return "";
+					}
+					if(contents == ""){
+						alert("내용을 입력하세요!")
+						return "";
+					}
+					
+					$.ajax({
+						type:"put"
+						,url:"/post/update"
+						,data:{"title":title,"contents":contents}
+						,success:function(response){
+							if(response.result=="success"){
+								location.href="/post/list-view"
+								alert("수정완료!!")
+							}else{
+								alert("수정실패!!")
+							}
+						}
+						,error:function(){
+							alert("수정에러!!")
+						}
+					});
+					
+				});
+			});
+		
  		
  		</script>
- 		
  		
  		
  </html>
